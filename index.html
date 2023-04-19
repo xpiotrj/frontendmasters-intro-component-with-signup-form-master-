@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Intro component with sign up form</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <script>
+    function check(){
+      //declare
+      const last_input = document.getElementById("last_name");
+      const first_input = document.getElementById("first_name");
+      const email_input = document.getElementById("email");
+      const password_input = document.getElementById("password");
+      const last_input_error = document.getElementById("last_name_error");
+      const first_input_error = document.getElementById("first_name_error");
+      const email_input_error = document.getElementById("email_error");
+      const password_input_error = document.getElementById("password_error");
+      var re = /\S+@\S+\.\S+/;
+      //First name validation
+      if(first_input.value == "" || first_input.value[0] == " " || String(first_input.value).length < 2){
+        first_input.style="border: 2px solid red"
+        first_input_error.style = "display: block";      
+      }
+      else{
+        first_input.style="border: 1px solid var(--Grayish-Blue)"
+        first_input_error.style = "display: none";
+      }
+
+      if(last_input.value == "" || last_input.value[0] == " " || last_input.value.length < 2){
+        last_input.style="border: 2px solid red"
+        last_input_error.style = "display: block";      
+      }
+      else{
+        last_input.style="border: 1px solid var(--Grayish-Blue)"
+        last_input_error.style = "display: none";
+      }
+
+      if(re.test(email_input.value) == false){
+        email_input.style="border: 2px solid red";
+        email_input_error.style="display: block";
+        
+      }
+      else{
+        email_input.style="border: 1px solid var(--Grayish-Blue)"
+        email_input_error.style = "display: none";
+      }
+
+      if(password_input.value == "" || password_input.value[0] == " " || password_input.value.length < 8){
+        password_input.style="border: 2px solid red";
+        password_input_error.style="display: block";
+      }
+      else{
+        password_input.style="border: 1px solid var(--Grayish-Blue)"
+        password_input_error.style = "display: none";
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="part1">
+  <div class="title">Learn to code by watching others</div>
+  <div class="info">See how experienced developers solve problems in real-time. Watching scripted tutorials is great, 
+    but understanding how developers think is invaluable. 
+  </div>
+</div>
+  <div class="part2">
+    <div class="try-it"><span style="font-weight: 600; margin-right: 5px;">Try it free 7 days</span>then $20/mo. thereafter</div>
+  <div class="form">
+    <input type="text" name="" id="first_name" placeholder="First Name" required>
+    <div class="input-holder" id="first_name_error">First Name cannot be empty</div>
+    <input type="text" name="" id="last_name" placeholder="Last Name" required>
+    <div class="input-holder" id="last_name_error">Last Name cannot be empty</div>
+    <input type="email" name="" id="email" placeholder="Email Address" required>
+    <div class="input-holder" id="email_error">Email like this is not an email</div>
+    <input type="password" name="" id="password" placeholder="Password" required>
+    <div class="input-holder" id="password_error">Password cannot be empty/too short (min. 8 characters)</div>
+    <input type="button" onclick="check()" value="CLAIM YOUR FREE TRIAL"><br>
+    <div style="width: 80%; margin-left: 10%; font-size: 12px; padding-bottom: 3%;">By clicking the button, you are agreeing to our <span style="color: hsl(0, 100%, 74%); font-weight: 700;">Terms and Services</span></div>
+  </div>
+</div>
+</div>
+</body>
+</html>
